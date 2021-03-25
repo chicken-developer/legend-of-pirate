@@ -1,0 +1,16 @@
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\bin\Debug\net5.0\VSApp.exe
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\bin\Debug\net5.0\VSApp.deps.json
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\bin\Debug\net5.0\VSApp.runtimeconfig.json
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\bin\Debug\net5.0\VSApp.runtimeconfig.dev.json
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\bin\Debug\net5.0\VSApp.dll
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\bin\Debug\net5.0\ref\VSApp.dll
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\bin\Debug\net5.0\VSApp.pdb
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\obj\Debug\net5.0\VSApp.csprojAssemblyReference.cache
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\obj\Debug\net5.0\VSApp.GeneratedMSBuildEditorConfig.editorconfig
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\obj\Debug\net5.0\VSApp.AssemblyInfoInputs.cache
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\obj\Debug\net5.0\VSApp.AssemblyInfo.cs
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\obj\Debug\net5.0\VSApp.csproj.CoreCompileInputs.cache
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\obj\Debug\net5.0\VSApp.dll
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\obj\Debug\net5.0\ref\VSApp.dll
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\obj\Debug\net5.0\VSApp.pdb
+E:\NguyenManhQuynh\GitRepos\vtc-academy-unity3d-final-project\Project_server\Test\VSApp\obj\Debug\net5.0\VSApp.genruntimeconfig.cache
