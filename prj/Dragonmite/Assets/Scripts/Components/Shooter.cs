@@ -50,27 +50,26 @@ public class Shooter : MonoBehaviour
 	public Camera mainCamera;
 	public GameObject bulletEgg;
 	public GameObject eggPrefab;
-	public GameObject eggWarehouse;
-	private EggWarehouse eggWarehouseObj;
+	public EggWarehouse eggWarehouseObj;
 	[SerializeField] float MAX_DEGREE_ROTATION;
 	[SerializeField] float BULLET_SPEED;
 	[SerializeField] List<GameObject> mColors = new List<GameObject>();
 	[SerializeField] GameObject mAimPattern;
-	int mColor;
+	public int mColor { get; private set; }
 	bool mIsMouseDown = false;
 	
 	private Vector3 currentShootingDir;
-	public bool randomEgg;
+	[HideInInspector] public bool randomEgg;
     // Start is called before the first frame update
     void Start()
     {
         SetState(STATE.IDLE);
 		randomEgg = true;
-		eggWarehouseObj = eggWarehouse.GetComponent<EggWarehouse>();
+		eggWarehouseObj.targetShooter = this;
 		//bulletEgg.SetActive(false);
 		//BulletColliderBridge cb = bulletEgg.AddComponent<BulletColliderBridge>();
 		//cb.Initialize(this);
-    }
+	}
 	
 	public void SetColor(int color)
     {
@@ -88,9 +87,7 @@ public class Shooter : MonoBehaviour
     {
 		if(randomEgg)
 		{
-			int color = Random.Range(0, (int)Defines.COLOR.YELLOW+1);
-			mColor = color;
-			SetColor(color);
+			eggWarehouseObj.Request("reload");
 			randomEgg = false;
 		}
 		if(IsState(STATE.SHOOTING))

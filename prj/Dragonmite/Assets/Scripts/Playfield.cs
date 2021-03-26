@@ -195,15 +195,20 @@ public class Playfield : Singleton<Playfield>
                 egg.SetPosition(c, r, offset);
                 int color = Random.Range(0, (int)Defines.COLOR.YELLOW+1);
                 egg.SetColor(color);
-                if (r > NUM_ROWS_SHOW)
-                    egg.gameObject.SetActive(false);
+				egg.gameObject.SetActive(false);
                 eggs.Add(egg);
             }
             mGird.Add(eggs);
             mOdd = !mOdd;
         }
 		mOdd = true;
-        SetState(STATE.PLAYGAME);
+
+		for(int i = 0; i < NUM_ROWS_SHOW; ++i)
+        {
+			SpawnLine();
+        }
+
+		SetState(STATE.PLAYGAME);
     }
 
 	public Egg GetEggInGrid(int row, int column)
@@ -259,9 +264,43 @@ public class Playfield : Singleton<Playfield>
         }
         
         float offset = mOdd ? OFFSET_EGG : 0;
-        foreach (Egg e in mGird[0])
+        for(int i = 0; i < COLUMNS; ++i)
         {
-            int color = Random.Range(0, (int)Defines.COLOR.YELLOW+1);
+			Egg e = mGird[0][i];
+			int color;
+
+			int left = i == 0 ? 0 : mOdd ? i : i - 1;
+			int right = i == (COLUMNS - 1) ? (COLUMNS - 1) : mOdd ? i + 1 : i;
+			bool haveLeftEgg = mGird[1][left].isActiveAndEnabled;
+			bool haveRightEgg = mGird[1][right].isActiveAndEnabled;
+
+			if (Random.Range(0,10) < 8 && (haveLeftEgg || haveRightEgg)) // 80%
+            {
+				if(haveLeftEgg && haveRightEgg)
+                {
+					if (Random.Range(0, 2) == 1) // 50%
+					{
+						color = mGird[1][left].GetColor();
+					}
+					else
+					{
+						color = mGird[1][right].GetColor();
+					}
+				}
+                else if(haveLeftEgg)
+                {
+					color = mGird[1][left].GetColor();
+				}
+                else
+                {
+					color = mGird[1][right].GetColor();
+				}
+            }
+            else
+            {
+				color = Random.Range(0, (int)Defines.COLOR.YELLOW + 1);
+			}
+
             e.SetColor(color);      
             e.SetPosition(e.GetCol(), 0, offset);          
             e.gameObject.SetActive(true);

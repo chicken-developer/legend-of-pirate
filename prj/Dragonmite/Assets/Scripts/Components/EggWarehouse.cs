@@ -1,36 +1,50 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using System;
 
 public class EggWarehouse: MonoBehaviour
 {
-    Action<GameObject> currentEvent;
-    public GameObject eggWarehousePrefab;
-	private List<GameObject> eggColorsInStock;
-    private GameObject readyEgg;
-    public Shooter targetShooter;
+    private int currentEgg;
+    private int mColor;
+
+    [HideInInspector] public Shooter targetShooter;
+    [SerializeField] private GameObject[] Colors;
+
     void Start()
     {
-        eggColorsInStock = new List<GameObject>();
-        readyEgg = eggColorsInStock[0];
+        RandomEgg();
+    }
+
+    private void SetColor(int color)
+    {
+        currentEgg = color;
+        foreach (GameObject obj in Colors)
+        {
+            obj.SetActive(false);
+        }
+        if (color >= 0)
+            Colors[color].SetActive(true);
+    }
+
+    private void RandomEgg()
+    {
+        currentEgg = UnityEngine.Random.Range(0, (int)Defines.COLOR.YELLOW + 1);
+        Debug.Log("currentEgg: " + currentEgg);
+        SetColor(currentEgg);
     }
     public void Request(String RequestID)
     {
-        switch(RequestID)
+        switch (RequestID)
         {
-            case "reload" :
-                currentEvent = (bulletEgg) => {
-                    Debug.Log("Reload");
-                }; 
+            case "reload":
+                targetShooter.SetColor(currentEgg);
+                RandomEgg();
                 break;
-            case "swap" :
-                currentEvent = (bulletEgg) => {
-                    Debug.Log("Swap");
-                }; 
-                break ;
+            case "swap":
+                int shooterCurrentEgg = targetShooter.mColor;
+                targetShooter.SetColor(currentEgg);
+                SetColor(shooterCurrentEgg);
+                break;
 
         }
-        currentEvent(targetShooter.bulletEgg);
     }
 }
