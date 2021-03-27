@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Rope
   - Egg
+  - singleModeBtn
+  - multiModeBtn
+  - quitBtn
+  - replay
+  - quitmatch
   layers:
   - Default
   - TransparentFX

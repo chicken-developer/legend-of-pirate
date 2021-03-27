@@ -581,6 +581,7 @@ GameObject:
   - component: {fileID: 277575151}
   - component: {fileID: 277575150}
   - component: {fileID: 277575149}
+  - component: {fileID: 277575152}
   m_Layer: 5
   m_Name: GameOverPopup
   m_TagString: Untagged
@@ -609,7 +610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 71}
+  m_AnchoredPosition: {x: 4.9, y: 71}
   m_SizeDelta: {x: 600, y: 932.1386}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &277575149
@@ -664,6 +665,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277575147}
   m_CullTransparentMesh: 0
+--- !u!114 &277575152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277575147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5d0ba093ae16642b3af27288dbea6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &314847827
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +950,7 @@ GameObject:
   - component: {fileID: 468847042}
   m_Layer: 5
   m_Name: ReplayButton
-  m_TagString: Untagged
+  m_TagString: replay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2993,7 +3006,7 @@ PrefabInstance:
     - target: {fileID: 1510432533, guid: 692c33047f3f31f49adb77036f5b6fdc, type: 3}
       propertyPath: mainCamera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 905754289}
     - target: {fileID: 1510432533, guid: 692c33047f3f31f49adb77036f5b6fdc, type: 3}
       propertyPath: mAimPattern
       value: 
@@ -3195,7 +3208,7 @@ GameObject:
   - component: {fileID: 1983809884}
   m_Layer: 5
   m_Name: QuitButton
-  m_TagString: Untagged
+  m_TagString: quitmatch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
