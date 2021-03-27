@@ -10,15 +10,16 @@ public class GameOverPopupBtnHandle : MonoBehaviour
     private Button quitMatch;
     void ReplayGameOnClicked()
     {
-        Debug.Log("Enter multi mode");
-       //TODO: Replay btn handle
+        Debug.Log("Replay");
+       //TODO: Handle replay game: When end, click this button will reset process and play again in single
+       //On multi mode, not support
     }
    
 
     void QuitMatchOnClicked()
     {
         Debug.Log("Quit game");
-        //TODO: Quit match handle
+        //TODO: Quit match handle: When click, back to main menu. And from main menu click single will enter game and play again
     }
     void Awake()
     {

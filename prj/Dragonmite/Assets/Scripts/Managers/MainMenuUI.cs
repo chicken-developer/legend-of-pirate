@@ -9,6 +9,7 @@ public class MainMenuUI : MonoBehaviour
     // Start is called before the first frame update
     private Button singleModeBtn;
     private Button multiModeBtn;
+    [SerializeField] GameObject multiPlayModePopup;
     private Button quitBtn;
 
     void SingleBtnOnClicked()
@@ -20,7 +21,7 @@ public class MainMenuUI : MonoBehaviour
     void MultiBtnOnClicked()
     {
         Debug.Log("Enter multi mode");
-        SceneManager.LoadScene("MultiMode");
+        multiPlayModePopup.SetActive(true);
     }
 
     void QuitBtnOnClicked()
