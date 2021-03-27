@@ -11,6 +11,10 @@ TagManager:
   - quitBtn
   - replay
   - quitmatch
+  - inputFieldAddress
+  - inputFieldRoomID
+  - startMultiBtn
+  - backMainMenuBtn
   layers:
   - Default
   - TransparentFX
