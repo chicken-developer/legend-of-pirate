@@ -1,13 +1,13 @@
 # .gitignore for dragonmite
 
-/prj/Dragonmite/*
-/prj/Dragonmite/*/
+/prj/LegendOfPirate/*
+/prj/LegendOfPirate/*/
 
-!/prj/Dragonmite/Assets/
-!/prj/Dragonmite/ProjectSettings/
-!/prj/Dragonmite/Packages/
+!/prj/LegendOfPirate/Assets/
+!/prj/LegendOfPirate/ProjectSettings/
+!/prj/LegendOfPirate/Packages/
 
-!/prj/Dragonmite/Library/
-/prj/Dragonmite/Library/*
-/prj/Dragonmite/Library/*/
-!/prj/Dragonmite/Library/*.asset
+!/prj/LegendOfPirate/Library/
+/prj/LegendOfPirate/Library/*
+/prj/LegendOfPirate/Library/*/
+!/prj/LegendOfPirate/Library/*.asset
