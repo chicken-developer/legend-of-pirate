@@ -1,5 +1,5 @@
 ﻿
-public class Timer
+public class MTimer
 {
     float mTimer = 0;
 

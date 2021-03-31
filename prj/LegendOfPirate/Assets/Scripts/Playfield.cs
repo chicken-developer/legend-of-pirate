@@ -27,11 +27,11 @@ public class Playfield : Singleton<Playfield>
     [SerializeField] float mTimeToDrop = DEFAULT_DROP_TIME;// 5s
     List<List<Egg>> mGird = new List<List<Egg>>();
     STATE mState;
-    Timer mTimer = new Timer();
+    MTimer mTimer = new MTimer();
 	
 	//game level
 	[SerializeField] GameObject mLevelText;
-	Timer mLevelTimer = new Timer();
+	MTimer mLevelTimer = new MTimer();
 	static int INSCREASE_LEVEL_TIME = 120;	
 	static int INITIALIZE_LEVEL = 1;
 	static int MAX_LEVEL = 6;
