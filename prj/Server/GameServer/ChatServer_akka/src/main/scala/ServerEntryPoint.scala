@@ -36,7 +36,7 @@ object ServerEntryPoint {
     val gameService = new GameServer()
 
     //val bindingFutureWithoutSecurity = Http().newServerAt("127.0.0.1",8000).bindFlow(gameService.FinalRoute)
-    val bindingFutureWithSecurity = Http().newServerAt("127.0.0.1",8000).enableHttps(httpsConnectionContext).bindFlow(gameService.FinalRoute)
+    val bindingFutureWithSecurity = Http().newServerAt("127.0.0.1",8002).enableHttps(httpsConnectionContext).bindFlow(gameService.FinalRoute)
 
     println(s"Server is progressing...\nPress RETURN to stop...")
     StdIn.readLine()
