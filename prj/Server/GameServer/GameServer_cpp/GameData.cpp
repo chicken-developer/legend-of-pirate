@@ -1,6 +1,6 @@
-#include "Quotes.h"
+#include "GameData.h"
 
-CQuotes::CQuotes(std::string fileName)
+CGameData::CGameData(std::string fileName)
 {
 	std::ifstream file;
 	file.open(fileName);
@@ -16,19 +16,18 @@ CQuotes::CQuotes(std::string fileName)
 			}
 			else 
 			{
-				quotes.push_back(running);
+				data.push_back(running);
 				running = "";
 			}
 		}
 	}
 }
 
-CQuotes::~CQuotes()
+CGameData::~CGameData()
 {
 }
 
-std::string CQuotes::GetRandomQuotes()
+std::string CGameData::Update()
 {
-	int r = rand() % quotes.size();
-	return quotes[r];
+	
 }

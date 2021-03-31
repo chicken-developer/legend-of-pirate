@@ -2,25 +2,25 @@
 #include <string>
 
 #include "TcpListener.h"
-#include "Quotes.h"
+#include "GameData.h"
 
 using namespace std;
-CQuotes quotes("quotes.txt");
+CGameData gameData("templateData.txt");
 
 void Listener_MessageReceive(CTcpListener *listener, int client, string msg);
 
 void Listener_MessageReceive(CTcpListener *listener, int client, string msg)
 {
-	if(msg == "QUOTE")
+	if(msg == "update")
 	{
-		listener->Send(client, quotes.GetRandomQuotes());
+		listener->Send(client, gameData.Update());
 	}
 }
 
 
 void main()
 {
-	CTcpListener server("127.0.0.1", 54010, Listener_MessageReceive);
+	CTcpListener server("127.0.0.1", 8003, Listener_MessageReceive);
 	if (server.Init())
 	{
 		server.Run();

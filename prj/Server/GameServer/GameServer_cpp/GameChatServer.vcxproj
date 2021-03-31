@@ -140,12 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Quotes.cpp" />
+    <ClCompile Include="GameData.cpp" />
     <ClCompile Include="TcpListener.cpp" />
     <ClCompile Include="TempCode.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Quotes.h" />
+    <ClInclude Include="GameData.h" />
     <ClInclude Include="TcpListener.h" />
   </ItemGroup>
   <ItemGroup>
