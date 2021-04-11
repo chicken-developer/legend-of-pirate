@@ -17,7 +17,7 @@ class GameMasterActor extends Actor with ActorLogging {
                                                 0,
                                                 0,
                                                 List(1,2,3,2,1,5),
-                                                true)
+                                                stillAlive = true)
                                         ))
             playersInGame += (userName -> PlayerDataWithActor(newPlayer, actor))
             println(s"Player $userName enter game success")

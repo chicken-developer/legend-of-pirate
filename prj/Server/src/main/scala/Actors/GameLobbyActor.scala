@@ -7,13 +7,13 @@ class GameLobbyActor extends Actor with ActorLogging {
     val playersInLobby = collection.mutable.LinkedHashMap[String, PlayerDataWithActor]()
 
     override def receive: Receive = {
-       case EnterLooby(userName, actor) =>
+       case EnterLobby(userName, actor) =>
             val newPlayer = PlayerData(userName, None)
             playersInLobby += (newPlayer.userName -> PlayerDataWithActor(newPlayer, actor))
             log.info(s"Player $userName enter lobby")
             NotifyLobbyUpdate()
 
-        case ExitLooby(userName) =>
+        case ExitLobby(userName) =>
             playersInLobby -= userName
             log.info(s"Player $userName exit lobby")
             NotifyLobbyUpdate()

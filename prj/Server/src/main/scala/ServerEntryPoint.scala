@@ -36,12 +36,17 @@ object DragonMiteServer {
 
 
     val gameService = new GameServer()
+
+    val localHost = "127.0.0.1"
+    val localPort = 8001
+
     val herokuHost = "0.0.0.0" 
     val herokuPort: Int = sys.env.getOrElse("PORT","8005").toInt
-    val hardCodePort: Int = 56445
 
-    //val bindingFutureWithoutSecurity = Http().newServerAt("127.0.0.1",8000).bindFlow(gameService.FinalRoute)
-    val bindingFutureWithSecurity = Http().newServerAt(herokuHost,hardCodePort).enableHttps(httpsConnectionContext).bindFlow(gameService.GameFinalRoute)
+    val hardCodePort: Int = 56445 //For fix crash on heroku
+
+    //val bindingFutureWithoutSecurity = Http().newServerAt("127.0.0.1",8000).bindFlow(gameService.FinalRoute) // http://
+    val bindingFutureWithSecurity = Http().newServerAt(localHost,localPort).enableHttps(httpsConnectionContext).bindFlow(gameService.GameFinalRoute) // https://
 
     println(s"Server is progressing...\nPress RETURN to stop...")
     StdIn.readLine()

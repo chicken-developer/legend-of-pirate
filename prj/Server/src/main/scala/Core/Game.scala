@@ -8,8 +8,8 @@ object Game {
         case class InGameData(score: Int,currentEgg: Int, level: Int, eggField: List[Int], stillAlive: Boolean) extends GameData
 
     trait GameEvent 
-        case class EnterLooby(userName: String, actor: ActorRef) extends GameEvent
-        case class ExitLooby(userName: String) extends GameEvent
+        case class EnterLobby(userName: String, actor: ActorRef) extends GameEvent
+        case class ExitLobby(userName: String) extends GameEvent
         case class LobbyUpdate() extends GameEvent
         case class LobbyChanged(profile: Iterable[PlayerData]) extends GameEvent
         case class StartGameFromLobby() extends GameEvent
