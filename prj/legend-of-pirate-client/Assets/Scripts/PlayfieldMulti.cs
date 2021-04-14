@@ -1,9 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Playfield : Singleton<Playfield>
+public class PlayfieldMulti : Singleton<Playfield>
 {
     public enum STATE
     {
@@ -149,7 +149,7 @@ public class Playfield : Singleton<Playfield>
 		if(fallenEggs >= 1)
 			score *= fallenEggs;
 		totalScore += brokenEggs + fallenEggs;
-		mScoreText.GetComponent<Text>().text = "Gems broken: " + totalScore.ToString("N0");
+		mScoreText.GetComponent<Text>().text = "Gems: " + totalScore.ToString("N0");
 	}
 
 	void PrepareFallenEggPool()

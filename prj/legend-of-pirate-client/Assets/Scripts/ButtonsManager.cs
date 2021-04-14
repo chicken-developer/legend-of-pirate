@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class ButtonsManager : MonoBehaviour
 {
-    public GameObject menuMain, menuPlayMode, menuSelectDragon, menuSelectBackground, menuOptions, menuAbout, menuShop, menuPlayOnline, menuMatchMake, menuPrivateMatch, menuJoinRoom, menuRoomStatus;
+    public GameObject menuMain, menuPlayMode, menuSelectDragon, menuSelectBackground, menuOptions, menuPlayOnline;
 
-    public GameObject mAboutText, mPlayerNameInputText, mMatchMakeInfoText, mCodeInputText;
+    public GameObject  mPlayerNameInputText, mCodeInputText;
 
     public GameObject popupError, mErrorInfoText;
 
@@ -25,13 +25,7 @@ public class ButtonsManager : MonoBehaviour
         menuSelectDragon.SetActive(false);
         menuSelectBackground.SetActive(false);
         menuOptions.SetActive(false);
-        menuAbout.SetActive(false);
-        menuShop.SetActive(false);
         menuPlayOnline.SetActive(false);
-        menuMatchMake.SetActive(false);
-        menuPrivateMatch.SetActive(false);
-        menuJoinRoom.SetActive(false);
-        menuRoomStatus.SetActive(false);
 
         popupError.SetActive(false);
 
@@ -40,14 +34,7 @@ public class ButtonsManager : MonoBehaviour
 
     void Update() 
     {
-        //update about
-        if(StateManager.Instance().GetState() == StateManager.STATE.MENU_ABOUT)
-        {
-            aboutTextPosY ++;
-            if(aboutTextPosY >= 900f)
-                aboutTextPosY = -900f;
-            mAboutText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, aboutTextPosY);
-        }
+        
     }
 
     //Press the button on top of screen
@@ -97,10 +84,6 @@ public class ButtonsManager : MonoBehaviour
                     mErrorInfoText.GetComponent<Text>().text = "Fail to create private match";
                     return;
                 }
-                menuPrivateMatch.SetActive(false);
-                menuRoomStatus.SetActive(true);
-                StateManager.Instance().SetState(StateManager.STATE.MENU_ROOM_STATUS);
-                //TODO: create token to send to 2nd player
             break;
             case StateManager.STATE.MENU_JOIN_ROOM:
             break;
@@ -169,8 +152,6 @@ public class ButtonsManager : MonoBehaviour
             case StateManager.STATE.MENU_MATCH_MAKE:
             break;
             case StateManager.STATE.MENU_PRIVATE_MATCH:                
-                menuPrivateMatch.SetActive(false);
-                menuJoinRoom.SetActive(true);
                 StateManager.Instance().SetState(StateManager.STATE.MENU_JOIN_ROOM);
             break;
             case StateManager.STATE.MENU_JOIN_ROOM:
@@ -216,8 +197,6 @@ public class ButtonsManager : MonoBehaviour
             break;
             case StateManager.STATE.MENU_OPTIONS:
                 menuOptions.SetActive(false);
-                menuAbout.SetActive(true);
-                aboutTextPosY = -500f;
                 StateManager.Instance().SetState(StateManager.STATE.MENU_ABOUT);
             break;
             case StateManager.STATE.MENU_ABOUT:
@@ -238,7 +217,6 @@ public class ButtonsManager : MonoBehaviour
                     return;
                 }
                 menuPlayOnline.SetActive(false);
-                menuPrivateMatch.SetActive(true);
                 StateManager.Instance().SetState(StateManager.STATE.MENU_PRIVATE_MATCH);
             break;
             case StateManager.STATE.MENU_MATCH_MAKE:
@@ -258,8 +236,6 @@ public class ButtonsManager : MonoBehaviour
                     mErrorInfoText.GetComponent<Text>().text = "Join failed\nPlease try again";
                     return;
                 }
-                menuJoinRoom.SetActive(false);
-                menuRoomStatus.SetActive(true);
                 StateManager.Instance().SetState(StateManager.STATE.MENU_ROOM_STATUS);
             break;
             case StateManager.STATE.MENU_ROOM_STATUS:
@@ -303,7 +279,6 @@ public class ButtonsManager : MonoBehaviour
             break;
             case StateManager.STATE.MENU_ABOUT:
                 menuOptions.SetActive(true);
-                menuAbout.SetActive(false);
                 StateManager.Instance().SetState(StateManager.STATE.MENU_OPTIONS);
             break;
             case StateManager.STATE.MENU_SHOP:
@@ -325,7 +300,6 @@ public class ButtonsManager : MonoBehaviour
                 StateManager.Instance().SetState(StateManager.STATE.MENU_SELECT_BACKGROUND);                
             break;
             case StateManager.STATE.MENU_MATCH_MAKE:
-                menuMatchMake.SetActive(false);
                 menuPlayOnline.SetActive(true);
                 StateManager.Instance().SetState(StateManager.STATE.MENU_ONLINE_PLAY);
                 //TODO: cancel search online player
@@ -336,7 +310,6 @@ public class ButtonsManager : MonoBehaviour
                     popupError.SetActive(false);
                     return;
                 }
-                menuPrivateMatch.SetActive(false);
                 menuPlayOnline.SetActive(true);
                 StateManager.Instance().SetState(StateManager.STATE.MENU_ONLINE_PLAY);
             break;
@@ -346,8 +319,6 @@ public class ButtonsManager : MonoBehaviour
                     popupError.SetActive(false);
                     return;
                 }
-                menuJoinRoom.SetActive(false);
-                menuPrivateMatch.SetActive(true);
                 StateManager.Instance().SetState(StateManager.STATE.MENU_PRIVATE_MATCH);
             break;
             case StateManager.STATE.MENU_ROOM_STATUS:
@@ -356,8 +327,6 @@ public class ButtonsManager : MonoBehaviour
                     popupError.SetActive(false);
                     return;
                 }
-                menuRoomStatus.SetActive(false);
-                menuPrivateMatch.SetActive(true);
                 StateManager.Instance().SetState(StateManager.STATE.MENU_PRIVATE_MATCH);
             break;
             case StateManager.STATE.MENU_INGAME:
