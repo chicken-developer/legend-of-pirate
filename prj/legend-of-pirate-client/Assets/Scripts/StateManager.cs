@@ -2,6 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class PlayerData
+{
+    public static string name;
+    public static string roomID;
+
+    public static void SetData(string _name, string _roomID)
+    {
+        name = _name;
+        roomID = _roomID;
+    }
+}
+
 public class StateManager : Singleton<StateManager>
 {
     public enum STATE

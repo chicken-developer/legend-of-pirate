@@ -2024,7 +2024,7 @@ GameObject:
   - component: {fileID: 599296359}
   - component: {fileID: 599296358}
   m_Layer: 5
-  m_Name: InputFieldPlayerName (1)
+  m_Name: InputFieldRoomID
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2201,7 +2201,7 @@ MonoBehaviour:
   menuSelectBackground: {fileID: 2012727898}
   menuOptions: {fileID: 1630794581}
   menuPlayOnline: {fileID: 1002975472}
-  mPlayerNameInputText: {fileID: 157169344}
+  mPlayerNameInputText: {fileID: 0}
   mCodeInputText: {fileID: 0}
   popupError: {fileID: 1192490557}
   mErrorInfoText: {fileID: 1951683598}

@@ -131,8 +131,9 @@ public class PlayfieldMulti : Singleton<Playfield>
     // Start is called before the first frame update
     void Start()
     {
-		//limit fps to save battery
-		QualitySettings.vSyncCount = 1;
+        Debug.Log("Player data: name: " + PlayerData.name + " - roomID: " + PlayerData.roomID);
+        //limit fps to save battery
+        QualitySettings.vSyncCount = 1;
 		Application.targetFrameRate = 60;
 
 		eggDownAnimTime = 0.0f;

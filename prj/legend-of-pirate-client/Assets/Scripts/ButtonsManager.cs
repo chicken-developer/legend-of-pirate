@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonsManager : MonoBehaviour
 {
     public GameObject menuMain, menuPlayMode, menuSelectDragon, menuSelectBackground, menuOptions, menuPlayOnline;
 
-    public GameObject  mPlayerNameInputText, mCodeInputText;
+    public Text  mPlayerNameInputText, mCodeInputText;
 
     public GameObject popupError, mErrorInfoText;
 
@@ -135,7 +136,7 @@ public class ButtonsManager : MonoBehaviour
             case StateManager.STATE.MENU_WATCH_ADS:
             break;
             case StateManager.STATE.MENU_ONLINE_PLAY:
-                if(mPlayerNameInputText.GetComponent<Text>().text == "")
+                if(mPlayerNameInputText.text == "")
                 {
                     popupError.SetActive(true);
                     mErrorInfoText.GetComponent<Text>().text = "Please enter your name";
@@ -186,7 +187,8 @@ public class ButtonsManager : MonoBehaviour
             case StateManager.STATE.MENU_SELECT_BACKGROUND:
                 if(StateManager.Instance().GetMode() == StateManager.MODE.SINGLE_PLAY)
                 {
-
+                    PlayerData.SetData("Single", "0");
+                    SceneManager.LoadScene("Single");
                 }
                 else if(StateManager.Instance().GetMode() == StateManager.MODE.ONLINE_PLAY)
                 {
@@ -210,21 +212,24 @@ public class ButtonsManager : MonoBehaviour
             case StateManager.STATE.MENU_WATCH_ADS:
             break;
             case StateManager.STATE.MENU_ONLINE_PLAY:
-                if(mPlayerNameInputText.GetComponent<Text>().text == "")
+                if(mPlayerNameInputText.text == "")
                 {
                     popupError.SetActive(true);
                     mErrorInfoText.GetComponent<Text>().text = "Please enter your name";
                     return;
                 }
                 menuPlayOnline.SetActive(false);
-                StateManager.Instance().SetState(StateManager.STATE.MENU_PRIVATE_MATCH);
-            break;
+                //StateManager.Instance().SetState(StateManager.STATE.MENU_PRIVATE_MATCH);
+                PlayerData.SetData(mPlayerNameInputText.text, mCodeInputText.text);
+                StateManager.Instance().SetState(StateManager.STATE.GAMEPLAY);
+                SceneManager.LoadScene("Multi");
+                break;
             case StateManager.STATE.MENU_MATCH_MAKE:
             break;
             case StateManager.STATE.MENU_PRIVATE_MATCH:
             break;
             case StateManager.STATE.MENU_JOIN_ROOM:
-                if(mCodeInputText.GetComponent<Text>().text == "")
+                if(mCodeInputText.text == "")
                 {
                     popupError.SetActive(true);
                     mErrorInfoText.GetComponent<Text>().text = "Please enter room code";
