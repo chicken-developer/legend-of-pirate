@@ -26,19 +26,15 @@ class GameServer(implicit val system: ActorSystem, implicit val materializer: Ma
 
             //This will tell request to actor, and actor update and push back an event
             val MessageToGameInMatchEventConverter = builder.add(Flow[Message].map {
-                case TextMessage.Strict(newScore) =>
-                    println("Have update score request from " + profile.toString)
-                    UpdateScore(profile, newScore)
-                case TextMessage.Strict(newLevel) =>
-                    println("Have update level request from " + profile.toString)
-                    UpdateScore(profile, newLevel)
-                //TODO: Priority 3: Implement game in match request
+                case TextMessage.Strict(newData) =>
+                    println("Have update data request from " + profile.toString)
+                    GameUpdate(profile, newData)
+
             })
             //This handle back event from actor, and send text message to client
             val GameInMatchEventBackToMessageConverter = builder.add(Flow[GameEvent].map{
                 case GameMasterChanged(profile) =>
-                    TextMessage("Update score player01, 4 | player02, 3")
-                
+                    TextMessage("player01, 4, alive | player02, 3, alive")
             })
             materialization ~> merge ~> gameInMatchProfileSink
             MessageToGameInMatchEventConverter ~> merge 
@@ -46,27 +42,12 @@ class GameServer(implicit val system: ActorSystem, implicit val materializer: Ma
             FlowShape(MessageToGameInMatchEventConverter.in, GameInMatchEventBackToMessageConverter.out)
         })
 
-    val content =
-        """
-        |<html>
-        | <head></head>
-        | <body>
-        |   This is an HTML page served by Akka HTTP!
-        | </body>
-        |</html>
-        """
 
     val GameFinalRoute = 
-    //  (get & parameter("playerName")){ playerName =>
-    //     handleWebSocketMessages(gameInMatchFlow(PlayerData(playerName, None)))
-    //  } ~   
-     get {
-        complete(
-            HttpEntity(
-            ContentTypes.`text/html(UTF-8)`,
-            content
-            )
-        )
-    }
-     
+      //(get & parameter("playerName")){ playerName =>
+        get {
+            val playerName = "HelloDIangeo"
+         handleWebSocketMessages(gameInMatchFlow(PlayerData(playerName, None)))
+      }
+
 }

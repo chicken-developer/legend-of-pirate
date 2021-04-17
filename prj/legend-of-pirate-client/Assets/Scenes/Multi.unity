@@ -4905,6 +4905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2135762830}
   - component: {fileID: 2135762829}
+  - component: {fileID: 2135762831}
   m_Layer: 0
   m_Name: Playfield
   m_TagString: GameController
@@ -4921,18 +4922,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2135762828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d79439b6993bfc42937cece0585b7e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 15075286f8393de4e8d2b8d5f01e1d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mEggPrefab: {fileID: 87792059}
   mGameOverPopup: {fileID: 1530725792}
   mShooter: {fileID: 696063592}
   mEggAnimation: {fileID: 1480860690}
-  ROWS: 10
+  ROWS: 9
   COLUMNS: 8
   OFFSET_EGG: 0.33
   NUM_ROWS_SHOW: 3
-  WEIGHTED_RANDOM_CHANCE: 45
+  WEIGHTED_RANDOM_CHANCE: 60
   mTimeToDrop: 10
   mLevelText: {fileID: 509807213}
   mCurrentLevel: 1
@@ -4964,6 +4965,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2135762831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135762828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc79a30305d77a47a16cad6cfe7b9a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomID: {fileID: 582896878}
+  playerName: {fileID: 237640}
+  enemyName: {fileID: 61319960}
+  playerLevel: {fileID: 509807216}
+  enemyLevel: {fileID: 2069344751}
+  playerScore: {fileID: 1106507052}
+  enemyScore: {fileID: 1534319283}
 --- !u!1 &2143372271
 GameObject:
   m_ObjectHideFlags: 0

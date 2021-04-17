@@ -2,8 +2,8 @@ package Actors
 
 import akka.actor.{Actor, ActorLogging}
 import com.google.gson._ 
-import Core.Game._ 
-import Core.GameBehavior._
+import Core.Game._
+
 class GameMasterActor extends Actor with ActorLogging {
     
     val playersInGame = collection.mutable.LinkedHashMap[String, PlayerDataWithActor]()
@@ -25,8 +25,8 @@ class GameMasterActor extends Actor with ActorLogging {
             playersInGame -= userName
             NotifyGameUpdate()
 
-        case UpdateScore(player, newScore) =>
-            log.info("Enter case update score")
+        case GameUpdate(player, newData) =>
+            log.info("Player update data")
             NotifyGameUpdate()    
         case _ => log.info("Enter Game master actor")
     }

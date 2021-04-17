@@ -131,7 +131,6 @@ public class Playfield : Singleton<Playfield>
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Player data: name: " + PlayerData.name + " - roomID: " + PlayerData.roomID);
 		//limit fps to save battery
 		QualitySettings.vSyncCount = 1;
 		Application.targetFrameRate = 60;
